@@ -108,6 +108,7 @@ body {
   font-size: 12px;
   width: 42px;
   text-align: center;
+  width: 20%;
 }
 .FollowGithub {
   width: 100%;
@@ -129,16 +130,19 @@ body {
 }
 .gist {
   /* color: #fff; */
-  background-image: linear-gradient(#f9c513, #dbab09);
+  background-color: #dbab09;
+  /* background-image: linear-gradient(#f9c513, #dbab09); */
 }
 
 .repo {
   /* color: #fff; */
-  background-image: linear-gradient(#f66a0a, #fb8532);
+  background-color: #f66a0a;
+  /* background-image: linear-gradient(#f66a0a, #fb8532); */
 }
 .following {
   /* color: #fff; */
-  background-image: linear-gradient(#22863a, #34d058);
+  background-color: #34d058;
+  /* background-image: linear-gradient(#22863a, #34d058); */
 }
 .FontColor
 {

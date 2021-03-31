@@ -35,7 +35,7 @@ const Card = (props) => {
               <span>Gist:- {props.gist}</span>
             </div><br/>
             <div className="FollowGithub badge ">
-              <a href={props.html_url} className='followLink'>
+              <a href={props.html_url} className='followLink' target='_blank'>
                 View {props.login} on Github <i class="fab fa-github"></i>
               </a>
             </div>

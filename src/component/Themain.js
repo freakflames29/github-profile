@@ -3,9 +3,8 @@ import Search from "./Search";
 import Card from "./Card";
 
 const Themain = () => {
-
   const [userstate, changeUser] = useState({
-    login: "Sourav das",
+    login: "freakflames29",
     avatar_url: "https://avatars.githubusercontent.com/u/70948672?v=4",
     html_url: "https://github.com/freakflames29",
     type: "User",
@@ -14,8 +13,9 @@ const Themain = () => {
     public_gists: 4,
     followers: 3,
     following: 1,
-    message: "Not Found",
-    call:1
+    message: "Mad man",
+    call: 1,
+    name:'Sourav das'
   });
   const changeName = (e) => {
     changeUser({
@@ -23,7 +23,6 @@ const Themain = () => {
     });
   };
   const SearchUser = () => {
-
     fetch(`https://api.github.com/users/${userstate.login}`)
       .then((response) => response.json())
       .then((response) => {
@@ -37,14 +36,15 @@ const Themain = () => {
           public_gists: response.public_gists,
           followers: response.followers,
           following: response.following,
-          message:response.message,
-          call:0
+          message: response.message,
+          call: 0,
+          name: response.name,
         });
       });
   };
-  if (userstate.message=="Not Found")
-  {
-    return(
+
+  if (userstate.message == "Not Found") {
+    return (
       <div>
         <h1 className="heading">
           User not present on <i class="fab fa-github"></i>{" "}
@@ -52,18 +52,17 @@ const Themain = () => {
         <Search type={changeName} search={SearchUser} />
         {/* <Card error={userstate.message}/> */}
       </div>
-    )
-
-}
-else {
-  return(
-    <div>
-      <h1 className="heading">
-        Searching for @{userstate.login} on <i class="fab fa-github"></i>{" "}
-      </h1>
-      <Search type={changeName} search={SearchUser} />
-      <Card
-          login={userstate.login}
+    );
+  } else {
+    return (
+      <div>
+        <h1 className="heading">
+          Searching for @{userstate.login} on <i class="fab fa-github"></i>{" "}
+        </h1>
+        <Search type={changeName} search={SearchUser} />
+        <Card
+          name={userstate.login}
+          login={userstate.name}
           bio={userstate.bio}
           followers={userstate.followers}
           avatar_url={userstate.avatar_url}
@@ -73,8 +72,8 @@ else {
           html_url={userstate.html_url}
           gist={userstate.public_gists}
         />
-    </div>
-  )
-}
+      </div>
+    );
+  }
 };
 export default Themain;
